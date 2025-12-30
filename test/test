@@ -43,14 +43,15 @@ spec:
         vendor: "Unknown"
         deviceName: "test"
         size: 0
-      bootMACAddress: ""
+      bootMACAddress: "tesst"
       nodeNetwork:
         interfaces: []
         config:
           interfaces: []
           dns-resolver:
             config:
-              server: []
+              server:
+              - "test"
           routes:
             config:
             - next-hop-interface: ""
