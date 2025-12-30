@@ -54,6 +54,6 @@ spec:
               - "test"
           routes:
             config:
-            - next-hop-interface: ""
+            - next-hop-interface: "test"
               destination: "0.0.0.0/0"
-              next-hop-address: ""
+              next-hop-address: "test"
