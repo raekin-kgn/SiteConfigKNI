@@ -1,0 +1,60 @@
+---
+apiVersion: "ran.openshift.io/v1"
+kind: "SiteConfig"
+metadata:
+  name: "prod-instance"
+  namespace: "cluster-instance-001"
+spec:
+  baseDomain: "odine.com"
+  clusterImageSetNameRef: "cluster-images-001"
+  sshPublicKey: "cluster-instance-001"
+  pullSecretRef:
+    name: "secret/secret-key-001"
+  clusters:
+  - clusterName: "prod-instance"
+    extraManifestPath: "/path/to/extra.yaml"
+    extraManifests:
+      filter:
+        inclusionDefault: "exclude"
+        include:
+        - "extra.yaml"
+    networkType: "OVNKubernetes"
+    clusterLabels:
+      key: "İSTANBUL"
+    clusterNetwork:
+    - cidr: "192.168.1.0/24"
+      hostPrefix: 24
+    machineNetwork:
+    - cidr: "192.168.1.0/24"
+    apiVIP: "192.168.1.0"
+    ingressVIP: "192.168.1.0"
+    serviceNetwork:
+    - "192.168.1.0/24"
+    additionalNTPSources:
+    - "192.168.1.0"
+    nodes:
+    - hostName: "node-01.example.com"
+      role: "master"
+      bmcAddress: ""
+      bmcCredentialsName:
+        name: "node-1"
+      nodeLabels: {}
+      bootMode: "UEFI"
+      rootDeviceHints:
+        vendor: "ZTE"
+        deviceName: "/dev/sda"
+        size: 22
+      bootMACAddress: ""
+      nodeNetwork:
+        interfaces: []
+        config:
+          interfaces: []
+          dns-resolver:
+            config:
+              server:
+              - "3.3.3.3"
+          routes:
+            config:
+            - next-hop-interface: ""
+              destination: "0.0.0.0/0"
+              next-hop-address: ""
