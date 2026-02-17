@@ -35,19 +35,19 @@ spec:
     - "10.218.99.21"
     - "ntp.pool.org"
     nodes:
-    - hostName: "odine.master.org"
-      role: "master"
+    - hostName: "ahmet-hostname-1"
+      role: "worker"
       bmcAddress: "192.168.65.3"
       bmcCredentialsName:
         name: "bmc-credentials-0"
       nodeLabels:
-        storage: "zte"
-      bootMode: "UEFISecureBoot"
+        asdasfsdgf: "fdgdfgdfg"
+      bootMode: "UEFI"
       rootDeviceHints:
-        vendor: "ZTE"
-        deviceName: "/dev/sda"
-        size: 90
-      bootMACAddress: "AA:3F:92:1B:C4:7E"
+        vendor: "Netas"
+        deviceName: "asdasd"
+        size: 0
+      bootMACAddress: "40:A6:B7:88:84:5C"
       nodeNetwork:
         interfaces:
         - name: "ens1f0"
@@ -82,67 +82,12 @@ spec:
             state: "up"
             type: "ethernet"
             mtu: 9000
-          - ipv4:
-              enabled: false
-            link-aggregation:
-              mode: "active-backup"
-              port:
-              - "ens1f0: 04:32:01:52:74:70"
-              - "ens2f0: C4:CB:E1:B5:89:01"
-              options:
-                miimon: "100"
-            ipv6:
-              enabled: false
-            name: "bond0"
-            description: "bond"
-            state: "up"
-            type: "bond"
-            mtu: 9000
-          - vlan:
-              base-iface: "bond0"
-              id: 400
-            ipv4:
-              address:
-                prefix-length: "16"
-                ip: "10.10.55.124"
-              enabled: true
-            ipv6:
-              enabled: false
-            name: "bond0.400"
-            state: "up"
-            type: "vlan"
-            mtu: 9000
           dns-resolver:
             config:
               server:
-              - "8.8.8.8"
+              - "192.168.1.1"
           routes:
             config:
-            - next-hop-interface: "bond0.400"
+            - next-hop-interface: ""
               destination: "0.0.0.0/0"
-              next-hop-address: "10.10.55.124"
-    - hostName: "node.worker.org"
-      role: "worker"
-      bmcAddress: "172.16.180.19"
-      bmcCredentialsName:
-        name: "bmc-credentials-1"
-      nodeLabels: {}
-      bootMode: "UEFISecureBoot"
-      rootDeviceHints:
-        vendor: "ZTE"
-        deviceName: "/dev/sdb"
-        size: 90
-      bootMACAddress: "5C:11:8A:EF:09:33"
-      nodeNetwork:
-        interfaces: []
-        config:
-          interfaces: []
-          dns-resolver:
-            config:
-              server:
-              - "8.8.1.1"
-          routes:
-            config:
-            - next-hop-interface: "bond1"
-              destination: "0.0.0.0/0"
-              next-hop-address: "10.10.55.124"
+              next-hop-address: ""
