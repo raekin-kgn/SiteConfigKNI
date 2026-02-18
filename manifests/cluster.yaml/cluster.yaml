@@ -2,8 +2,8 @@
 apiVersion: "ran.openshift.io/v1"
 kind: "SiteConfig"
 metadata:
-  name: "ahmet-1"
-  namespace: "ahmet-namespace-1"
+  name: "ahmet-123-kagan"
+  namespace: "ahmet-kagan-namespace-1"
 spec:
   baseDomain: "odine.com"
   clusterImageSetNameRef: "asdasfsdfdsgdfgfdg"
