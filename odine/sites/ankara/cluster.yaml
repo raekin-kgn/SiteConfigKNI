@@ -12,7 +12,7 @@ spec:
   pullSecretRef:
     name: "secret/pul-secrets"
   clusters:
-  - clusterName: "ankara-odine-cluster"
+  - clusterName: "ankara-odine-cluster-123"
     extraManifestPath: "path/odine/policies"
     extraManifests:
       filter:
