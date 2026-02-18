@@ -11,7 +11,7 @@ spec:
   pullSecretRef:
     name: "dsffdsfsd/asdasda.txt"
   clusters:
-  - clusterName: "ahmet-cluster"
+  - clusterName: "ahmet-1"
     extraManifestPath: "manifests/cluster.yaml"
     extraManifests:
       filter:
