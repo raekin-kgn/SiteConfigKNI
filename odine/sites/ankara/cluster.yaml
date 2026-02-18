@@ -2,7 +2,7 @@
 apiVersion: "ran.openshift.io/v1"
 kind: "SiteConfig"
 metadata:
-  name: "ankara-odine-cluster"
+  name: "ankara-odine-cluster-123"
   namespace: "ankara-cluster-odine"
 spec:
   baseDomain: "turkcell.tgc"
