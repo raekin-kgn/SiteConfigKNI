@@ -5,7 +5,7 @@ metadata:
   name: "ahmet-2"
   namespace: "ahmet-namespace-2"
 spec:
-  baseDomain: "odine.com"
+  baseDomain: "turkcell-test.com"
   clusterImageSetNameRef: "asdasfsdfdsgdfgfdg"
   sshPublicKey: "4g45456546456"
   pullSecretRef:
