@@ -2,7 +2,7 @@
 apiVersion: "ran.openshift.io/v1"
 kind: "SiteConfig"
 metadata:
-  name: "ankara-odine-cluster-123"
+  name: "ahmet kağan bişeyler deniyor"
   namespace: "ankara-cluster-odine"
 spec:
   baseDomain: "turkcell.tgc"
@@ -12,7 +12,7 @@ spec:
   pullSecretRef:
     name: "secret/pul-secrets"
   clusters:
-  - clusterName: "ankara-odine-cluster-123"
+  - clusterName: "ahmet kağan bişeyler deniyor"
     extraManifestPath: "path/odine/policies"
     extraManifests:
       filter:
