@@ -31,22 +31,52 @@ spec:
     serviceNetwork: []
     additionalNTPSources: []
     nodes:
-    - hostName: ""
+    - hostName: "sadsafsdfds"
       role: "master"
-      bmcAddress: ""
+      bmcAddress: "192.168.65.3"
       bmcCredentialsName:
-        name: ""
+        name: "bmc-credentials-0"
       nodeLabels: {}
-      bootMode: "UEFISecureBoot"
+      bootMode: "UEFI"
       rootDeviceHints:
-        vendor: "Netas"
+        vendor: "Unknown"
         deviceName: ""
         size: 0
-      bootMACAddress: ""
+      bootMACAddress: "40:A6:B7:88:84:5C"
       nodeNetwork:
-        interfaces: []
+        interfaces:
+        - name: "ens1f0"
+          macAddress: "04:32:01:52:74:70"
+        - name: "ens1f1"
+          macAddress: "04:32:01:52:74:71"
+        - name: "ens2f0"
+          macAddress: "C4:CB:E1:B5:89:01"
         config:
-          interfaces: []
+          interfaces:
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens1f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens1f1"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens2f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
           dns-resolver:
             config:
               server: []
