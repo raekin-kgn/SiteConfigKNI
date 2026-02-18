@@ -1,0 +1,57 @@
+---
+apiVersion: "ran.openshift.io/v1"
+kind: "SiteConfig"
+metadata:
+  name: "ahmet-1"
+  namespace: "ahmet-namespace-1"
+spec:
+  baseDomain: "odine.com"
+  clusterImageSetNameRef: "asdasfsdfdsgdfgfdg"
+  sshPublicKey: "4g45456546456"
+  pullSecretRef:
+    name: "dsffdsfsd/asdasda.txt"
+  clusters:
+  - clusterName: "ahmet-1"
+    extraManifestPath: "manifests/cluster.yaml"
+    extraManifests:
+      filter:
+        inclusionDefault: "exclude"
+        include:
+        - "manifestsasdsafasfs/cluster.yaml"
+    networkType: "OVNKubernetes"
+    clusterLabels:
+      location: "Ankara"
+    clusterNetwork:
+    - cidr: "192.168.1.0/24"
+      hostPrefix: 24
+    machineNetwork:
+    - cidr: "192.168.1.1/24"
+    apiVIP: "10.10.10.11"
+    ingressVIP: "10.10.10.10"
+    serviceNetwork: []
+    additionalNTPSources: []
+    nodes:
+    - hostName: ""
+      role: "master"
+      bmcAddress: ""
+      bmcCredentialsName:
+        name: ""
+      nodeLabels: {}
+      bootMode: "UEFISecureBoot"
+      rootDeviceHints:
+        vendor: "Netas"
+        deviceName: ""
+        size: 0
+      bootMACAddress: ""
+      nodeNetwork:
+        interfaces: []
+        config:
+          interfaces: []
+          dns-resolver:
+            config:
+              server: []
+          routes:
+            config:
+            - next-hop-interface: ""
+              destination: "0.0.0.0/0"
+              next-hop-address: ""
