@@ -22,6 +22,7 @@ spec:
       cwl: true
       cnf: "mav-common"
       config-ver: "2025-01-22"
+      test: "test"
     clusterNetwork:
     - cidr: "192.168.1.0/24"
       hostPrefix: 24
