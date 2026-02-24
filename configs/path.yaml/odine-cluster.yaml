@@ -1,0 +1,254 @@
+---
+apiVersion: "ran.openshift.io/v1"
+kind: "SiteConfig"
+metadata:
+  name: "odine-cluster"
+  namespace: "odine-test"
+spec:
+  baseDomain: "odine.com"
+  clusterImageSetNameRef: "odine-image"
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC4."
+  pullSecretRef:
+    name: "secrets/machines/s.txt"
+  clusters:
+  - clusterName: "odine-cluster"
+    extraManifestPath: ""
+    extraManifests:
+      filter:
+        inclusionDefault: "exclude"
+        include: []
+    networkType: "OVNKubernetes"
+    clusterLabels:
+      cwl: true
+      cnf: "mav-common"
+      config-ver: "2025-01-22"
+    clusterNetwork:
+    - cidr: "192.168.1.0/24"
+      hostPrefix: 24
+    machineNetwork:
+    - cidr: "192.168.1.0/24"
+    apiVIP: "192.168.1.0"
+    ingressVIP: "192.168.1.0"
+    serviceNetwork:
+    - "171.164.2.0/24"
+    additionalNTPSources:
+    - "10.10.20.140"
+    - "ntp.pool.org"
+    nodes:
+    - hostName: "odine.worker.tgc"
+      role: "master"
+      bmcAddress: "192.168.65.3"
+      bmcCredentialsName:
+        name: "bmc-credentials-0"
+      nodeLabels:
+        openshift-storage: "test"
+      bootMode: "UEFISecureBoot"
+      rootDeviceHints:
+        vendor: "ZTE"
+        deviceName: "dev/sda"
+        size: 90
+      bootMACAddress: "40:A6:B7:88:84:5C"
+      nodeNetwork:
+        interfaces:
+        - name: "ens1f0"
+          macAddress: "04:32:01:52:74:70"
+        - name: "ens1f1"
+          macAddress: "04:32:01:52:74:71"
+        - name: "ens2f0"
+          macAddress: "C4:CB:E1:B5:89:01"
+        config:
+          interfaces:
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens1f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens1f1"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens2f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            link-aggregation:
+              mode: "active-backup"
+              port:
+              - "ens1f0: 04:32:01:52:74:70"
+              - "ens2f0: C4:CB:E1:B5:89:01"
+              options:
+                miimon: "100"
+            ipv6:
+              enabled: false
+            name: "bond0"
+            description: "bond for network transfer"
+            state: "up"
+            type: "bond"
+            mtu: 9000
+          - vlan:
+              base-iface: "bond0"
+              id: 0
+            ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "bond0.0"
+            state: "up"
+            type: "vlan"
+            mtu: 9000
+          dns-resolver:
+            config:
+              server:
+              - "8.8.8.8"
+          routes:
+            config:
+            - next-hop-interface: ""
+              destination: "0.0.0.0/0"
+              next-hop-address: ""
+    - hostName: "odine.worker.tgc"
+      role: "worker"
+      bmcAddress: "172.16.180.17"
+      bmcCredentialsName:
+        name: "bmc-credentials-1"
+      nodeLabels: {}
+      bootMode: "UEFISecureBoot"
+      rootDeviceHints:
+        vendor: "ZTE"
+        deviceName: "/dev/sdb"
+        size: 0
+      bootMACAddress: "40:A6:B7:88:84:5C"
+      nodeNetwork:
+        interfaces:
+        - name: "ens3f0"
+          macAddress: "90:5e:d9:00:0c:d0"
+        - name: "ens3f1"
+          macAddress: "90:5e:d9:00:0c:d2"
+        - name: "ens4f0"
+          macAddress: "9c:69:b4:65:6d:78"
+        - name: "ens4f1"
+          macAddress: "9c:69:b4:65:6d:79"
+        - name: "ens4f2"
+          macAddress: "9c:69:b4:65:6d:7a"
+        - name: "ens4f3"
+          macAddress: "9c:69:b4:65:6d:7b"
+        - name: "ens5f0"
+          macAddress: "90:c7:10:01:67:5f"
+        - name: "ens5f1"
+          macAddress: "90:c7:10:01:67:60"
+        config:
+          interfaces:
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens3f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens3f1"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens4f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens4f1"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens4f2"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens4f3"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens5f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens5f1"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            link-aggregation:
+              mode: "balance-xor"
+              port:
+              - "ens3f1: 90:5e:d9:00:0c:d2"
+              - "ens4f1: 9c:69:b4:65:6d:79"
+              - "ens4f2: 9c:69:b4:65:6d:7a"
+              - "ens4f3: 9c:69:b4:65:6d:7b"
+              options:
+                miimon: "100"
+            ipv6:
+              enabled: false
+            name: "bond1"
+            description: "d"
+            state: "up"
+            type: "bond"
+            mtu: 9000
+          - vlan:
+              base-iface: "bond1"
+              id: 101
+            ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "bond1.101"
+            state: "up"
+            type: "vlan"
+            mtu: 9000
+          dns-resolver:
+            config:
+              server:
+              - "8.8.8.8"
+          routes:
+            config:
+            - next-hop-interface: "bond1.101"
+              destination: "0.0.0.0/0"
+              next-hop-address: "10.10.55.139"
