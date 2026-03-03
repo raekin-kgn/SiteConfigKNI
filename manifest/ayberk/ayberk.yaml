@@ -1,0 +1,90 @@
+---
+apiVersion: "ran.openshift.io/v1"
+kind: "SiteConfig"
+metadata:
+  name: "ayberk-cluster"
+  namespace: "ayberk-namespace"
+spec:
+  baseDomain: "odine-ayberk.com"
+  clusterImageSetNameRef: "şdslfkdslkflsşd"
+  sshPublicKey: "fdgdfgdfgdfgdfg"
+  pullSecretRef:
+    name: "/secret/ayberk-secret"
+  clusters:
+  - clusterName: "ayberk-cluster"
+    extraManifestPath: "/manifest-extra/ayberk"
+    extraManifests:
+      filter:
+        inclusionDefault: "exclude"
+        include:
+        - "ayberk-extra.yaml"
+        - "ayberk-extra-1.yaml"
+    networkType: "OVNKubernetes"
+    clusterLabels:
+      location: "ankara"
+    clusterNetwork:
+    - cidr: "192.168.1.0/24"
+      hostPrefix: 24
+    machineNetwork:
+    - cidr: "192.168.1.1/24"
+    apiVIP: "10.10.10.10"
+    ingressVIP: "192.168.1.1"
+    serviceNetwork:
+    - "192.168.1.0/24"
+    additionalNTPSources:
+    - "192.168.1.1"
+    nodes:
+    - hostName: "asdasdasfsdf"
+      role: "master"
+      bmcAddress: "192.168.65.3"
+      bmcCredentialsName:
+        name: "bmc-credentials-0"
+      nodeLabels: {}
+      bootMode: "UEFI"
+      rootDeviceHints:
+        vendor: "Netas"
+        deviceName: "asasd"
+        size: 12
+      bootMACAddress: "40:A6:B7:88:84:5C"
+      nodeNetwork:
+        interfaces:
+        - name: "ens1f0"
+          macAddress: "04:32:01:52:74:70"
+        - name: "ens1f1"
+          macAddress: "04:32:01:52:74:71"
+        - name: "ens2f0"
+          macAddress: "C4:CB:E1:B5:89:01"
+        config:
+          interfaces:
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens1f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens1f1"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens2f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          dns-resolver:
+            config:
+              server: []
+          routes:
+            config:
+            - next-hop-interface: "bondasdas"
+              destination: "0.0.0.0/0"
+              next-hop-address: "192.168.1.1"
