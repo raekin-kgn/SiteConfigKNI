@@ -227,6 +227,7 @@ spec:
               - "ens5f1: 90:c7:10:01:67:60"
               - "ens5f0: 90:c7:10:01:67:5f"
               - "ens3f1: 90:5e:d9:00:0c:d2"
+              - "ens3f8: 90:5e:d9:00:0c:d2"
               options:
                 miimon: "100"
             ipv6:
