@@ -2,7 +2,7 @@
 apiVersion: "ran.openshift.io/v1"
 kind: "SiteConfig"
 metadata:
-  name: "test"
+  name: "test1"
   namespace: "test"
 spec:
   baseDomain: "test.com"
