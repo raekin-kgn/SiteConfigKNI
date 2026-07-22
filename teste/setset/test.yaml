@@ -1,0 +1,190 @@
+---
+apiVersion: "ran.openshift.io/v1"
+kind: "SiteConfig"
+metadata:
+  name: "estsets"
+  namespace: "test"
+spec:
+  baseDomain: "test.com"
+  clusterImageSetNameRef: "cluster-test-01"
+  sshPublicKey: "dfgdfgdgdgdfg"
+  pullSecretRef:
+    name: ""
+  clusters:
+  - clusterName: "estsets"
+    extraManifestPath: ""
+    extraManifests:
+      filter:
+        inclusionDefault: "exclude"
+        include: []
+    networkType: "OVNKubernetes"
+    clusterLabels:
+      key-1784707064403: ""
+    clusterNetwork:
+    - cidr: "192.168.2.2/4"
+      hostPrefix: 24
+    machineNetwork:
+    - cidr: "192.168.2.2/4"
+    apiVIP: "192.168.2.2"
+    ingressVIP: "192.168.2.2"
+    serviceNetwork: []
+    additionalNTPSources: []
+    nodes:
+    - hostName: "test.com"
+      role: "master"
+      bmcAddress: "192.168.65.3"
+      bmcCredentialsName:
+        name: "bmc-credentials-0"
+      nodeLabels: {}
+      bootMode: "UEFISecureBoot"
+      rootDeviceHints:
+        vendor: "Intel"
+        deviceName: "/dev/sda"
+        size: 0
+      bootMACAddress: "40:A6:B7:88:84:5C"
+      nodeNetwork:
+        interfaces:
+        - name: "ens1f0"
+          macAddress: "04:32:01:52:74:70"
+        - name: "ens1f1"
+          macAddress: "04:32:01:52:74:71"
+        - name: "ens2f0"
+          macAddress: "C4:CB:E1:B5:89:01"
+        config:
+          interfaces:
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens1f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens1f1"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens2f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          dns-resolver:
+            config:
+              server: []
+          routes:
+            config:
+            - next-hop-interface: ""
+              destination: "0.0.0.0/0"
+              next-hop-address: ""
+    - hostName: "test.com"
+      role: "worker"
+      bmcAddress: "172.16.180.19"
+      bmcCredentialsName:
+        name: "bmc-credentials-1"
+      nodeLabels: {}
+      bootMode: "UEFISecureBoot"
+      rootDeviceHints:
+        vendor: "Netas"
+        deviceName: "/dev/sda"
+        size: 0
+      bootMACAddress: "40:A6:B7:88:84:5C"
+      nodeNetwork:
+        interfaces:
+        - name: "ens3f0"
+          macAddress: "90:5e:d9:00:0c:6c"
+        - name: "ens3f1"
+          macAddress: "90:5e:d9:00:0c:6e"
+        - name: "ens4f0"
+          macAddress: "9c:69:b4:65:6d:a0"
+        - name: "ens4f1"
+          macAddress: "9c:69:b4:65:6d:a1"
+        - name: "ens4f2"
+          macAddress: "9c:69:b4:65:6d:a2"
+        - name: "ens4f3"
+          macAddress: "9c:69:b4:65:6d:a3"
+        - name: "ens5f0"
+          macAddress: "90:c7:10:01:67:63"
+        - name: "ens5f1"
+          macAddress: "90:c7:10:01:67:64"
+        config:
+          interfaces:
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens3f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens3f1"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens4f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens4f1"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens4f2"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens4f3"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens5f0"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          - ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+            name: "ens5f1"
+            state: "up"
+            type: "ethernet"
+            mtu: 9000
+          dns-resolver:
+            config:
+              server: []
+          routes:
+            config:
+            - next-hop-interface: ""
+              destination: "0.0.0.0/0"
+              next-hop-address: ""
