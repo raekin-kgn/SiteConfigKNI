@@ -1,0 +1,32 @@
+---
+apiVersion: "ran.openshift.io/v1"
+kind: "SiteConfig"
+metadata:
+  name: "sehran-manos-test"
+  namespace: "sehran-manos"
+spec:
+  baseDomain: "example.local"
+  clusterImageSetNameRef: null
+  sshPublicKey: null
+  pullSecretRef:
+    name: null
+  clusters:
+  - clusterName: "sehran-manos-cluster"
+    extraManifestPath: null
+    extraManifests:
+      filter:
+        inclusionDefault: "exclude"
+        include: null
+    networkType: "OVNKubernetes"
+    clusterLabels: null
+    clusterNetwork:
+    - cidr: "10.128.0.0/14"
+      hostPrefix: 23
+    machineNetwork:
+    - cidr: "192.168.10.0/24"
+    apiVIP: "192.168.10.11"
+    ingressVIP: "192.168.10.10"
+    serviceNetwork:
+    - "172.30.0.0/16"
+    additionalNTPSources: null
+    nodes: []
